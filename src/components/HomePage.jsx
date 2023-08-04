@@ -6,42 +6,41 @@ const topics = ["JavaScript", "CSS", "React", "Node.js"];
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
-  // ([
-  //   {
+  //   ([{
   //     title: "Getting Started with JavaScript",
   //     topic: "JavaScript",
   //     text: "JavaScript is a powerful scripting language...",
-  //     author: "John Doe",
-  //     postdate: "2023-08-04",
-  //     number_of_likes: 10,
-  //     number_of_comments: 5,
+  //     user_name: "John Doe",
+  //     post_date: "2023-08-04",
+  //     number_likes: 10,
+  //     number_comm: 5,
   //   },
   //   {
   //     title: "The Beauty of CSS Flexbox",
   //     topic: "CSS",
   //     text: "Flexbox is a layout model that allows...",
-  //     author: "Jane Smith",
-  //     postdate: "2023-08-03",
-  //     number_of_likes: 20,
-  //     number_of_comments: 8,
+  //     user_name: "Jane Smith",
+  //     post_date: "2023-08-03",
+  //     number_likes: 20,
+  //     number_comm: 8,
   //   },
   //   {
   //     title: "Using React Hooks",
   //     topic: "React",
   //     text: "React hooks are a great addition to React...",
-  //     author: "Alice Johnson",
-  //     postdate: "2023-08-23",
-  //     number_of_likes: 5,
-  //     number_of_comments: 2,
+  //     user_name: "Alice Johnson",
+  //     post_date: "2023-08-23",
+  //     number_likes: 5,
+  //     number_comm: 2,
   //   },
   //   {
   //     title: "Learning Node.js",
   //     topic: "Node.js",
   //     text: "Node.js is a server-side JavaScript runtime...",
-  //     author: "Robert Brown",
-  //     postdate: "2023-09-13",
-  //     number_of_likes: 15,
-  //     number_of_comments: 3,
+  //     user_name: "Robert Brown",
+  //     post_date: "2023-09-13",
+  //     number_likes: 15,
+  //     number_comm: 3,
   //   },
   // ]);
 
@@ -116,10 +115,10 @@ const HomePage = () => {
       title,
       topic,
       text,
-      author,
-      postdate,
-      number_of_likes,
-      number_of_comments,
+      user_name: author,
+      post_date,
+      number_likes,
+      number_comm,
     }) => {
       const isMatchingSearch =
         title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -129,13 +128,13 @@ const HomePage = () => {
 
       const isMatchingFilter =
         (!filters.fromDate ||
-          new Date(postdate) >= new Date(filters.fromDate)) &&
-        (!filters.toDate || new Date(postdate) <= new Date(filters.toDate)) &&
+          new Date(post_date) >= new Date(filters.fromDate)) &&
+        (!filters.toDate || new Date(post_date) <= new Date(filters.toDate)) &&
         (!filters.topic || filters.topic === topic) &&
-        (!filters.likesFrom || number_of_likes >= filters.likesFrom) &&
-        (!filters.likesTo || number_of_likes <= filters.likesTo) &&
-        (!filters.commentsFrom || number_of_comments >= filters.commentsFrom) &&
-        (!filters.commentsTo || number_of_comments <= filters.commentsTo);
+        (!filters.likesFrom || number_likes >= filters.likesFrom) &&
+        (!filters.likesTo || number_likes <= filters.likesTo) &&
+        (!filters.commentsFrom || number_comm >= filters.commentsFrom) &&
+        (!filters.commentsTo || number_comm <= filters.commentsTo);
 
       return isMatchingSearch && isMatchingFilter;
     }
@@ -264,8 +263,8 @@ const HomePage = () => {
       </div>
 
       <div className="posts-container">
-        {filteredPosts.map(({ title, topic, text }) => {
-          return <BlogPost title={title} topic={topic} text={text} />;
+        {filteredPosts.map(({ id, title, topic, text }) => {
+          return <BlogPost title={title} topic={topic} text={text} key={id} />;
         })}
       </div>
     </div>
