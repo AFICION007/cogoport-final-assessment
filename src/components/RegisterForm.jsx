@@ -21,6 +21,8 @@ const Form = () => {
         number_of_followers: 0,
       }),
     });
+
+    return response;
   };
 
   const handleSubmit = async (event) => {

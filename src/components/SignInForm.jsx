@@ -18,10 +18,8 @@ const SignInForm = () => {
       if (response.ok) {
         const data = await response.json();
         // Store the authentication token from the response
-        localStorage.setItem("authToken", data.auth_token);
-        alert(
-          `You're successfully signed in, your authtoken is ${data.auth_token}`
-        );
+        localStorage.setItem("authToken", data.token);
+        alert(`You're successfully signed in, your authtoken is ${data.token}`);
 
         // update frontend state to indicate user is authenticated
       } else {
