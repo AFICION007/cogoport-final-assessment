@@ -1,0 +1,22 @@
+.addblog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding-inline: 250px;
+}
+
+.addblog-heading {
+    font-weight: 900;
+    text-align: center;
+}
+
+.publish-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.publish-button-container button {
+    width: 100%;
+}
