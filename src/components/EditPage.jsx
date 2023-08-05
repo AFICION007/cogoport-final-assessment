@@ -39,39 +39,39 @@ const EditPage = () => {
     if (imageRef.current) formData.append("image", imageRef.current.files[0]);
     formData.append("post_id", blog.id);
 
-    // try {
-    //   const response = await fetch("http://127.0.0.1:3001/add_post", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
+    try {
+      const response = await fetch("http://127.0.0.1:3001/update_post", {
+        method: "POST",
+        body: formData,
+      });
 
-    //   if (response.ok) {
-    //     alert("Post submitted successfully!");
+      if (response.ok) {
+        alert("Post submitted successfully!");
 
-    titleRef.current.value = "";
-    subtitleRef.current.value = "";
-    topicRef.current.value = "";
-    textRef.current.value = "";
-    imageRef.current.value = "";
+        titleRef.current.value = "";
+        subtitleRef.current.value = "";
+        topicRef.current.value = "";
+        textRef.current.value = "";
+        imageRef.current.value = "";
 
-    navigate("/blog-page", {
-      state: {
-        blog: {
-          ...blog,
-          title: updatedBlog.title,
-          subtitle: updatedBlog.subtitle,
-          topic: updatedBlog.topic,
-          text: updatedBlog.text,
-        },
-      },
-    });
-    //   } else {
-    //     // There was an error in the request
-    //     alert("Error submitting post. Please try again later.");
-    //   }
-    // } catch (error) {
-    //   alert("Error:", error);
-    // }
+        navigate("/blog-page", {
+          state: {
+            blog: {
+              ...blog,
+              title: updatedBlog.title,
+              subtitle: updatedBlog.subtitle,
+              topic: updatedBlog.topic,
+              text: updatedBlog.text,
+            },
+          },
+        });
+      } else {
+        // There was an error in the request
+        alert("Error submitting post. Please try again later.");
+      }
+    } catch (error) {
+      alert("Error:", error);
+    }
   };
 
   return (

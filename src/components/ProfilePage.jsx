@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import BlogPost from "../helpers/BlogPost";
@@ -6,6 +7,7 @@ import "./css/ProfilePage.css";
 
 const ProfilePage = ({ user_id }) => {
   const [profilePosts, setProfilePosts] = useState([]);
+  // const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(async () => {
     const token = localStorage.getItem("authToken");
@@ -87,7 +89,7 @@ const ProfilePage = ({ user_id }) => {
           </div>
         </nav>
         <div className="profile-page-posts">
-          {posts.map((blog, index) => {
+          {profilePosts.map((blog, index) => {
             return (
               <Link
                 className="blog-router-link"
