@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import "./css/Form.css";
+import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  const navigate = useNavigate();
   const handleSignIn = async (email, password) => {
     try {
       const response = await fetch("http://127.0.0.1:3001/login", {
@@ -21,7 +23,7 @@ const SignInForm = () => {
         localStorage.setItem("authToken", data.token);
         alert(`You're successfully signed in, your authtoken is ${data.token}`);
 
-        // update frontend state to indicate user is authenticated
+        navigate("/home");
       } else {
         const errorData = await response.json();
         console.error("Sign-in error:", errorData.error);

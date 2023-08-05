@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import "./css/Form.css";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const nameRef = useRef(null);
@@ -7,6 +8,7 @@ const Form = () => {
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
 
+  const navigate = useNavigate();
   const handleRegister = async (name, email, password, confirmPassword) => {
     const response = await fetch("http://127.0.0.1:3001/add_user", {
       method: "POST",
@@ -47,9 +49,10 @@ const Form = () => {
         password,
         confirmPassword
       );
-      if (response.status === 200) {
+      if (response.ok) {
         alert("User registered successfully!");
-        // Optionally, you can redirect to a new page or show a success message.
+
+        navigate("/login");
       } else {
         alert("Failed to register user.");
       }

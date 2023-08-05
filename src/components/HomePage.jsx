@@ -1,55 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import BlogPost from "../helpers/BlogPost";
+import topics from "../topics";
 import "./css/HomePage.css";
 
-const topics = ["JavaScript", "CSS", "React", "Node.js"];
+// import blogs from "../homepageBlogs";
 
 const HomePage = () => {
+  // const [posts, setPosts] = useState([...blogs]);
   const [posts, setPosts] = useState([]);
-  //   ([{
-  //     title: "Getting Started with JavaScript",
-  //     topic: "JavaScript",
-  //     text: "JavaScript is a powerful scripting language...",
-  //     user_name: "John Doe",
-  //     post_date: "2023-08-04",
-  //     number_likes: 10,
-  //     number_comm: 5,
-  //   },
-  //   {
-  //     title: "The Beauty of CSS Flexbox",
-  //     topic: "CSS",
-  //     text: "Flexbox is a layout model that allows...",
-  //     user_name: "Jane Smith",
-  //     post_date: "2023-08-03",
-  //     number_likes: 20,
-  //     number_comm: 8,
-  //   },
-  //   {
-  //     title: "Using React Hooks",
-  //     topic: "React",
-  //     text: "React hooks are a great addition to React...",
-  //     user_name: "Alice Johnson",
-  //     post_date: "2023-08-23",
-  //     number_likes: 5,
-  //     number_comm: 2,
-  //   },
-  //   {
-  //     title: "Learning Node.js",
-  //     topic: "Node.js",
-  //     text: "Node.js is a server-side JavaScript runtime...",
-  //     user_name: "Robert Brown",
-  //     post_date: "2023-09-13",
-  //     number_likes: 15,
-  //     number_comm: 3,
-  //   },
-  // ]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("http://127.0.0.1:3001/posts");
         if (!response.ok) {
-          throw new Error("Network response was not ok.");
+          throw new Error("Network was not able to send response");
         }
         const jsonData = await response.json();
         setPosts(jsonData);
@@ -157,6 +124,14 @@ const HomePage = () => {
             Search
           </button>
         </form>
+        <div className="home-page-user-actions-container">
+          <Link className="blog-router-link" to="/register">
+            <div className="user-actions">Register</div>
+          </Link>
+          <Link className="blog-router-link" to="/login">
+            <div className="user-actions">Sign In</div>
+          </Link>
+        </div>
       </div>
       <div className="filters-container">
         <div className="filters-heading-container">
@@ -263,8 +238,17 @@ const HomePage = () => {
       </div>
 
       <div className="posts-container">
-        {filteredPosts.map(({ id, title, topic, text }) => {
-          return <BlogPost title={title} topic={topic} text={text} key={id} />;
+        {filteredPosts.map((blog, index) => {
+          return (
+            <Link
+              className="blog-router-link"
+              to="/blog-page"
+              state={{ blog: blog }}
+              key={index}
+            >
+              <BlogPost blog={blog} />
+            </Link>
+          );
         })}
       </div>
     </div>
