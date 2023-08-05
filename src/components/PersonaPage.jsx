@@ -9,6 +9,7 @@ const PersonaPage = () => {
   const [recomPosts, setRecomPosts] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchTopData = async () => {
       try {
         const response = await fetch("http://127.0.0.1:3001/posts");
@@ -16,7 +17,9 @@ const PersonaPage = () => {
           throw new Error("Network was not able to send response");
         }
         const jsonData = await response.json();
-        setTopPosts(jsonData);
+        if (isMounted) {
+          setTopPosts(jsonData);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -29,7 +32,7 @@ const PersonaPage = () => {
           throw new Error("Network was not able to send response");
         }
         const jsonData = await response.json();
-        setRecomPosts(jsonData);
+        if (isMounted) setRecomPosts(jsonData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -37,6 +40,9 @@ const PersonaPage = () => {
 
     fetchTopData();
     fetchRecomData();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (

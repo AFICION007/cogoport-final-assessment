@@ -12,6 +12,7 @@ const HomePage = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       try {
         const response = await fetch("http://127.0.0.1:3001/posts");
@@ -19,12 +20,18 @@ const HomePage = () => {
           throw new Error("Network was not able to send response");
         }
         const jsonData = await response.json();
-        setPosts(jsonData);
+        if (isMounted) {
+          setPosts(jsonData); // Update the state only if the component is still mounted
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
+
     fetchData();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const [searchQuery, setSearchQuery] = useState("");

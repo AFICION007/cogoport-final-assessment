@@ -21,6 +21,7 @@ const SignInForm = () => {
         const data = await response.json();
         // Store the authentication token from the response
         localStorage.setItem("authToken", data.token);
+        localStorage.setItem("user_id", data.user_id);
         alert(`You're successfully signed in, your authtoken is ${data.token}`);
 
         navigate("/home");

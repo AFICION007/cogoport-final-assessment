@@ -14,11 +14,23 @@ const EditPage = () => {
   const blog = location.state.blog;
   console.log(blog);
 
+  const resetRefs = () => {
+    titleRef.current.value = "";
+    subtitleRef.current.value = "";
+    topicRef.current.value = "";
+    textRef.current.value = "";
+    imageRef.current.value = "";
+  };
+
   useEffect(() => {
     titleRef.current.value = blog.title;
     subtitleRef.current.value = blog.subtitle;
     topicRef.current.value = blog.topic;
     textRef.current.value = blog.text;
+
+    return () => {
+      resetRefs();
+    };
   });
 
   const navigate = useNavigate();
@@ -48,11 +60,7 @@ const EditPage = () => {
       if (response.ok) {
         alert("Post submitted successfully!");
 
-        titleRef.current.value = "";
-        subtitleRef.current.value = "";
-        topicRef.current.value = "";
-        textRef.current.value = "";
-        imageRef.current.value = "";
+        resetRefs();
 
         navigate("/blog-page", {
           state: {
