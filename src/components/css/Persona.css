@@ -1,0 +1,16 @@
+.persona-page-main-container {
+    padding-top: 20px;
+}
+
+.persona-page-heading {
+    font-weight: 900;
+    margin-left: 50px;
+    margin-bottom: 24px;
+}
+
+.persona-page-top-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-inline-start: 50px;
+    margin-bottom: 20px;
+}

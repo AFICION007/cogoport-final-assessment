@@ -1,0 +1,18 @@
+.topics-container {
+    width: 100vw;
+    padding-inline: 100px;
+}
+
+.topics-grid {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.topics-topic {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.topics-topic:hover {}

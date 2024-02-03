@@ -1,0 +1,27 @@
+.recommended-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: rgb(249, 249, 249);
+}
+
+.recommended-heading-container {
+    /* border-top: 1px solid rgb(188, 188, 188); */
+    padding-block: 72px 48px;
+    display: flex;
+    flex-direction: row;
+    width: 680px;
+}
+
+.recommended-heading {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.recommended-grid {
+    width: 680px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 28px
+}

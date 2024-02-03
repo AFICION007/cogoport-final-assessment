@@ -1,0 +1,48 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profile-right {
+    display: flex;
+    flex-direction: column;
+    width: 728px;
+}
+
+.profile-cover {
+    height: 150px;
+    background-color: lightblue;
+}
+
+.profile-author-div {
+    padding-inline: 24px;
+    padding-block: 50px;
+}
+
+.profile-posts {
+    height: 240px;
+    /* background-color: #eaeaea; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-left {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.profile-author-image {
+    margin-top: 40px;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    background-color: #eaeaea;
+}
+
+.little-author-name {
+    font-weight: bold;
+    margin-block: 20px;
+}

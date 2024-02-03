@@ -1,0 +1,122 @@
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(+414px);
+    }
+
+    to {
+        transform: translate(0px);
+    }
+}
+
+.side-menu-container {
+    background-color: #fff;
+    width: 414px;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    cursor: default;
+    animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) alternate;
+}
+
+.side-menu-heading {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #242424;
+    margin: 24px;
+}
+
+.personal-comment-container {
+    padding-block: 14px;
+    margin-inline: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+}
+
+.author-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 14px;
+    margin-bottom: 6px;
+}
+
+.author-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #d5ffd6;
+}
+
+.author {
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.text-box {
+    height: 100px;
+
+}
+
+.text-area {
+    line-height: 24px;
+    height: 100px;
+    max-height: 100px;
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+    padding: 14px;
+}
+
+.respond-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-inline: 14px;
+    height: 31.33px;
+    font-size: 14px;
+}
+
+.cancel-button {
+    outline: none;
+    border: none;
+    height: 31.33px;
+    width: 67px;
+    padding: 0;
+    background-color: #ffff;
+}
+
+.respond-button {
+    outline: none;
+    border: none;
+    height: 31.33px;
+    border-radius: calc(31.33px/2);
+    width: 82px;
+    padding: 0;
+    color: #fff;
+    background-color: rgb(26, 137, 23);
+}
+
+.comments {
+    padding-inline: 24px;
+}

@@ -1,0 +1,45 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Profile from "./components/Profile";
+import Blog from "./components/Blog";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import VersionCard from "./helpers/VersionCard";
+
+const post = {
+  email: "avinav0110@gmail.com",
+  name: "Abhinav Tripathi",
+  number_of_comments: 2,
+  number_of_followers: 0,
+  number_of_likes: 0,
+  number_of_views: 0,
+  password: "Vijay@s1",
+  post_date_time: "2023-08-13T08:26:27.356Z",
+  post_id: 0,
+  subtitle: "Figures from the Road, #1",
+  text: "“You see, I’m more American than you are,” Naum tells me tongue in cheek as he leans upon his staff, pausing for a breather on the slopes of Makedonia’s Galicica National Park. We’ve spent the last few hours walking with his flock of goats and sheep on mountain pastures above the shimmering blue Ohrid Lake. He has been rattling off the names of American authors, movie stars, and songs popular well before my time, proving ever more to me that appearances truly can be deceiving. He’s named for the apostle and writer Saint Naum, or Naum of Ohrid (where he is buried). Legend has it that Naum could cure mental illnesses and speak to animals, so it’s only natural that Naum’s profession finds him so connected to living things.\n\nI first met Naum (aged 61) while walking High Scardus Trail through Kosovo, Albania, and Makedonia. I was struck not only by his expansive personality but also by his familiarity with English literature. He dropped names like Jack London and John Steinbeck, both of whom he had studied in school in Australia, where his family lived until he was 12. I was intrigued by the fact that someone so well-read and well-traveled would choose to be a shepherd. And so I set up a time to pay him a visit soon after.",
+  title: "Lessons from a Macedonian philosopher-shepherd",
+  topic: "Technology",
+  user_id: 0,
+};
+
+const version = {
+  action: "add",
+  action_timestamp: "2023-08-13T08:26:27.356Z",
+  post_id: 0,
+  subtitle: "Figures from the Road, #1",
+  text: "“You see, I’m more American than you are,” Naum tells me tongue in cheek as he leans upon his staff, pausing for a breather on the slopes of Makedonia’s Galicica National Park. We’ve spent the last few hours walking with his flock of goats and sheep on mountain pastures above the shimmering blue Ohrid Lake. He has been rattling off the names of American authors, movie stars, and songs popular well before my time, proving ever more to me that appearances truly can be deceiving. He’s named for the apostle and writer Saint Naum, or Naum of Ohrid (where he is buried). Legend has it that Naum could cure mental illnesses and speak to animals, so it’s only natural that Naum’s profession finds him so connected to living things.\n\nI first met Naum (aged 61) while walking High Scardus Trail through Kosovo, Albania, and Makedonia. I was struck not only by his expansive personality but also by his familiarity with English literature. He dropped names like Jack London and John Steinbeck, both of whom he had studied in school in Australia, where his family lived until he was 12. I was intrigued by the fact that someone so well-read and well-traveled would choose to be a shepherd. And so I set up a time to pay him a visit soon after.",
+  title: "Lessons from a Macedonian philosopher-shepherd",
+  topic: "Technology",
+  user_id: 0,
+  version: 1,
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    {/* <VersionCard Version={version} /> */}
+    {/* <Blog post={post} /> */}
+    <Profile user_id={0} />
+  </React.StrictMode>
+);
